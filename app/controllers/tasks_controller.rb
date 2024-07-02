@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all
+    @task = Task.new
   end
 
   def show
@@ -13,7 +14,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @tasks = Task.new(params[:task])
+    @tasks = Task.new(task_params)
     @task.save
     redirect_to task_path(@task)
   end
